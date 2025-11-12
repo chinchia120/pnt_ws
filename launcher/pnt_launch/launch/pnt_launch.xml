@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- novatel_converter -->
+    <node pkg="novatel_converter" exec="bestgnsspos_converter" name="bestgnsspos_converter">
+        <param name="use_sim_time" value="true"/>
+    </node>
+
+    <!-- path_display -->
+    <node pkg="path_display" exec="navsatfix_marker" name="navsatfix_marker">
+        <param name="use_sim_time" value="true"/>
+    </node>
+</launch>
