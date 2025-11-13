@@ -50,8 +50,8 @@ class NavSatFixMarker : public rclcpp::Node
             marker.color.b = 0.0;
             marker.color.a = 1.0;
     
-            marker.scale.x = 3.0;
-            marker.scale.y = 3.0;
+            marker.scale.x = 1.0;
+            marker.scale.y = 1.0;
         }
 
         void navsatfix_callback(const NavSatFix::SharedPtr navsatfix_msg)
@@ -60,6 +60,7 @@ class NavSatFixMarker : public rclcpp::Node
 
             marker.header.stamp = navsatfix_msg->header.stamp;
             marker.id = id++;
+            marker.points.clear();
 
             Point point;
             point.x = earth::getloc_x() - 169000.0;
@@ -70,6 +71,8 @@ class NavSatFixMarker : public rclcpp::Node
             RCLCPP_INFO(this->get_logger(), "%f, %f", point.x, point.y);
 
             marker_pub->publish(marker);
+            
+            if (id == 60) id = 0;
         }
 };
 
