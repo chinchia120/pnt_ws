@@ -9,4 +9,20 @@
     <node pkg="path_display" exec="navsatfix_marker" name="navsatfix_marker">
         <param name="use_sim_time" value="true"/>
     </node>
+
+    <node pkg="path_display" exec="navfusion_path" name="navfusion_path">
+        <param name="use_sim_time" value="true"/>
+    </node>
+
+    <!-- NavFusion -->
+    <node pkg="navfusion" exec="Pwrpak_TPS" name="Pwrpak_TPS">
+        <param name="use_sim_time" value="true"/>
+        <param name="config_address" value="src/config/libtps_config_330.txt"/>
+
+        <remap from="input_imu" to="/aceinna/openrtk/imu_ros2"/>
+        <remap from="input_gnss" to="/novatel/oem7/navsatfix"/>
+
+        <remap from="output_odometry" to="/navfusion_odometry"/>
+        <remap from="output_fusion" to="/navfusion_fusion"/>
+    </node>
 </launch>
