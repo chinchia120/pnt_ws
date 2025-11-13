@@ -1,0 +1,65 @@
+name v0.0.0 Aceinna-OpenRTK330LI
+// Alignment
+opt_ins_align 1
+t_align 30.0
+t_alignCoarse 0.0
+t_alignFine 0.0
+ini_pos_var 0.01
+ini_vel 0.0 0.0 0.0
+ini_vel_var 0.01
+ini_att 0.0 0.0 0.13962634016
+ini_att_var 0.007621 0.007621 0.007621
+est_g_bias 1
+
+// GPS
+offset -0.770 -0.755 -0.175
+gps_pos_std_scale 1.0
+gps_vel_std_scale 1.0
+gps_pos_std_scaleU 1.0
+gps_vel_std_scaleU 1.0
+posThInnoGNSS 100000
+velThInnoGNSS 1.0
+
+// IMU
+opt_ins_fmt 1
+d_rate 100.0
+
+// EKF
+arw 5.8170e-05
+vrw 6.6667e-04
+g_bias 0.0 0.0 0.0
+g_bias_var 5.2852e-11
+a_bias 0.0 0.0 0.0
+a_bias_var 4.0000e-08
+g_scale 0.0 0.0 0.0
+g_scale_var 1.6000e-05
+a_scale 0.0 0.0 0.0
+a_scale_var 1.6000e-05
+t_gb_cor 3600.0
+t_ab_cor 3600.0
+t_gs_cor 14400.0
+t_as_cor 14400.0
+
+// Feedback
+t_feedback 0.1
+feedback_bias 1
+
+// ZUPT
+zupt_fix_heading 1
+ZUPT_interval 0.1
+ZUPT_threshold 1.5
+var_zupt 0.0064
+var_zihr 0.0001
+
+// NHC
+use_nonholo 1
+var_nonholo 0.01 0.09
+NHC_interval 0.1
+la_odom -1.150 -0.340 1.190
+C_bv 1.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0
+
+// IOTimeUpdateTest 
+project_to_vehicle 1
+output_rate 100
+outputFileName src/out/FusionSolution.txt
+
