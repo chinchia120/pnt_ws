@@ -31,7 +31,7 @@ class BESTGNSSPOSConverter : public rclcpp::Node
         // Callback function
         void bestgnsspos_callback(const BESTGNSSPOS::SharedPtr bestgnsspos_msg)
         {
-            if (bestgnsspos_msg->nov_header.gps_week_milliseconds % 1000 != 0)
+            if (bestgnsspos_msg->nov_header.gps_week_milliseconds % 1000 != 0 || bestgnsspos_msg->sol_status.status != 0)
             {
                 return;
             }
