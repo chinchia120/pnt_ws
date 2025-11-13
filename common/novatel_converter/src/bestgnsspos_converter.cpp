@@ -31,6 +31,11 @@ class BESTGNSSPOSConverter : public rclcpp::Node
         // Callback function
         void bestgnsspos_callback(const BESTGNSSPOS::SharedPtr bestgnsspos_msg)
         {
+            if (bestgnsspos_msg->nov_header.gps_week_milliseconds % 1000 != 0)
+            {
+                return;
+            }
+            
             NavSatFix navsatfix_msg;
 
             navsatfix_msg.header.stamp.sec = bestgnsspos_msg->nov_header.gps_week_milliseconds / 1000;
