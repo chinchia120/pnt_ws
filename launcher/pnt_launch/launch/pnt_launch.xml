@@ -27,9 +27,20 @@
     </node>
 
     <!-- basler_poser -->
-    <!-- <node pkg="basler_poser" exec="image_poser" name="image_poser">
+    <node pkg="basler_poser" exec="image_poser" name="image_poser">
         <param name="use_sim_time" value="true"/>
-    </node> -->
+    </node>
+
+    <!-- VINS-Fusion-ROS2 -->
+    <node pkg="vins" exec="vins_node" name="vins_node" args="src/config/vins_config_basler_330.yaml">
+        <param name="use_sim_time" value="true"/>
+    </node>
+
+    <node pkg="global_fusion" exec="global_fusion_node" name="global_fusion_node">
+        <param name="use_sim_time" value="true"/>
+
+        <remap from="/gps" to="/novatel/oem7/navsatfix"/>
+    </node>
 
     <!-- rviz -->
     <node pkg="rviz2" exec="rviz2" name="rviz2">
