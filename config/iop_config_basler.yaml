@@ -1,0 +1,28 @@
+%YAML:1.0
+---
+model_type: PINHOLE
+camera_name: basler
+image_height: 1024
+image_width: 1280
+distortion_model: plumb_bob
+
+distortion_parameters:
+    k1: -0.046569166502249376
+    k2: 0.0662020737641444
+    p1: 0.002219408123184749
+    p2: 0.00358829860431263
+projection_parameters:
+    fx: 1685.400248698608
+    fy: 1681.3195271369507
+    cx: 654.3681610396874
+    cy: 540.6684989664453
+
+binning_x: 1
+binning_y: 1
+
+roi:
+    x_offset: 0
+    y_offset: 0
+    height: 0
+    width: 0
+    do_rectify: false
