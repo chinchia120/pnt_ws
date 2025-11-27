@@ -68,7 +68,7 @@ class NavSatFixMarker : public rclcpp::Node
             point.z = earth::getloc_z();
             marker.points.push_back(point);
 
-            RCLCPP_INFO(this->get_logger(), "%f, %f", point.x, point.y);
+            // RCLCPP_INFO(this->get_logger(), "%f, %f", point.x, point.y);
 
             marker_pub->publish(marker);
             
