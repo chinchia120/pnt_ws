@@ -30,4 +30,9 @@
     <!-- <node pkg="basler_poser" exec="image_poser" name="image_poser">
         <param name="use_sim_time" value="true"/>
     </node> -->
+
+    <!-- rviz -->
+    <node pkg="rviz2" exec="rviz2" name="rviz2">
+        <param name="use_sim_time" value="true"/>
+    </node>
 </launch>
