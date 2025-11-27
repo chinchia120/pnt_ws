@@ -25,4 +25,9 @@
         <remap from="output_odometry" to="/navfusion_odometry"/>
         <remap from="output_fusion" to="/navfusion_fusion"/>
     </node>
+
+    <!-- basler_poser -->
+    <!-- <node pkg="basler_poser" exec="image_poser" name="image_poser">
+        <param name="use_sim_time" value="true"/>
+    </node> -->
 </launch>
