@@ -30,6 +30,7 @@ class PointCloud2Poser : public rclcpp::Node
         {   
             PointCloud2 pointcloud2 = *pointcloud2_msg;
 
+            pointcloud2.header.stamp = this->now();
             pointcloud2.header.frame_id = "velodyne_top";
             pointcloud2_pub->publish(pointcloud2);
         }
