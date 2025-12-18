@@ -31,6 +31,11 @@
         <param name="use_sim_time" value="true"/>
     </node>
 
+    <!-- velodyne_poser -->
+    <node pkg="velodyne_poser" exec="pointcloud2_poser" name="pointcloud2_poser">
+        <param name="use_sim_time" value="true"/>
+    </node>
+
     <!-- VINS-Fusion-ROS2 -->
     <!-- <node pkg="vins" exec="vins_node" name="vins_node" args="src/config/vins_config_basler_330.yaml">
         <param name="use_sim_time" value="true"/>
@@ -42,13 +47,6 @@
         <remap from="/gps" to="/novatel/oem7/navsatfix"/>
     </node> -->
 
-    <!-- rviz -->
-    <arg name="rviz_config" default="$(find-pkg-share pnt_launch)/rviz/autoware.rviz" description="rviz config"/>
-
-    <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d $(var rviz_config)">
-        <param name="use_sim_time" value="true"/>
-    </node>
-
     <!-- Vehicle -->
     <arg name="vehicle_model" default="sample_vehicle"/>
     <arg name="sensor_model" default="sample_sensor_kit"/>
@@ -59,8 +57,10 @@
         <arg name="config_dir" value="$(find-pkg-share $(var sensor_model)_description)/config"/>
     </include>
 
-    <!-- Velodyne Poser -->
-    <!-- <node pkg="velodyne_poser" exec="pointcloud2_poser" name="pointcloud2_poser">
+    <!-- rviz -->
+    <arg name="rviz_config" default="$(find-pkg-share pnt_launch)/rviz/autoware.rviz" description="rviz config"/>
+
+    <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d $(var rviz_config)">
         <param name="use_sim_time" value="true"/>
-    </node> -->
+    </node>
 </launch>
