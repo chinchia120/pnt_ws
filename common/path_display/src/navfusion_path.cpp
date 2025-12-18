@@ -1,6 +1,7 @@
 #include "rclcpp/rclcpp.hpp"
 
 #include <tf2_ros/transform_broadcaster.h>
+#include <tf2/LinearMath/Quaternion.h>
 #include <nav_msgs/msg/path.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <geometry_msgs/msg/transform_stamped.hpp>
@@ -52,6 +53,13 @@ class NavFusionPath : public rclcpp::Node
             posestamped.pose.position.y = earth::getloc_y() - 2540000.0;
             posestamped.pose.position.z = earth::getloc_z();
 
+            tf2::Quaternion q;
+            q.setRPY(odometry_msg->pose.pose.orientation.x/180.0*M_PI, -odometry_msg->pose.pose.orientation.y/180.0*M_PI, -odometry_msg->pose.pose.orientation.z/180.0*M_PI + M_PI/2.0);
+            posestamped.pose.orientation.x = q.x();
+            posestamped.pose.orientation.y = q.y();
+            posestamped.pose.orientation.z = q.z();
+            posestamped.pose.orientation.w = q.w();
+
             navfusion_path.push_back(posestamped);
 
             // Publish Path
@@ -82,6 +90,8 @@ class NavFusionPath : public rclcpp::Node
             transformstamped.transform.translation.x = earth::getloc_x() - 169000.0;
             transformstamped.transform.translation.y = earth::getloc_y() - 2540000.0;
             transformstamped.transform.translation.z = earth::getloc_z();
+
+            transformstamped.transform.rotation = posestamped.pose.orientation;
 
             navfusion_tf_bro->sendTransform(transformstamped);
         }
