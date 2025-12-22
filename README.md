@@ -1,7 +1,7 @@
 # pnt_ws
 
 ## Overview
-For 114-1 Positioning-Navigation-and-Timing-Technologies-Theory-and-Application Lab Course
+For 114-1 Positioning Navigation and Timing Technologies Theory and Application Lab Course
 
 ## Information
 **Author**: Chin-Chia, Hsu, POINT Lab, Geomatics NCKU, Taiwan  
