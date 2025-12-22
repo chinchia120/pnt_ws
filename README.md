@@ -26,7 +26,7 @@ For 114-1 Positioning Navigation and Timing Technologies Theory and Application 
 ```
 src/
 ├── common/
-│   ├── coordinate_transform/       # Coordinate Transform from WGS84 to Local coordinate
+│   ├── coordinate_transform/       # Coordinate transform from WGS84 to local coordinate
 │   ├── novatel_converter/          # Convert NovAtel custom message to common message
 │   └── path_display/               # Visualize path from localization algorithm
 ├── config
@@ -45,4 +45,18 @@ src/
 ├── .gitignore
 ├── .gitmodules
 └── README.md
+```
+
+
+## Quick Start
+```bash
+# Clone project
+mkdir -p ~/pnt/src && cd ~/pnt/src
+git clone https://github.com/chinchia120/pnt_ws.git
+
+# Compile and run project
+cd ~/pnt_ws
+colcon build
+source install/setup.bash
+ros2 launch pnt_launch pnt_launch.xml
 ```
